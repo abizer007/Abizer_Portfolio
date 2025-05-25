@@ -63,6 +63,18 @@ export default function Header() {
                 {item.name}
               </motion.button>
             ))}
+            {/* Download CV Button */}
+            <motion.a
+              href="/Abizer_CV.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition"
+            >
+              Download CV
+            </motion.a>
+            {/* Theme Toggle */}
             <motion.button
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
@@ -111,6 +123,15 @@ export default function Header() {
                 {item.name}
               </button>
             ))}
+            {/* Mobile Download CV */}
+            <a
+              href="/Abizer_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full text-left px-4 py-2 text-gray-300 hover:bg-gray-700"
+            >
+              Download CV
+            </a>
           </motion.div>
         )}
       </nav>
