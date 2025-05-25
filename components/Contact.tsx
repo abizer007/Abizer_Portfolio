@@ -200,7 +200,7 @@ export default function Contact() {
             transition={{ duration: 0.8, delay: 0.8 }}
             className="text-center mt-16 pt-8 border-t border-gray-700"
           >
-            <p className="text-gray-400">© 2025 Abizer Masavi. Built with Next.js and Tailwind CSS.</p>
+            <p className="text-gray-400">© 2025 Abizer Masavi.</p>
           </motion.div>
         </motion.div>
       </div>
