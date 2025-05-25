@@ -19,7 +19,7 @@ export default function Education() {
     },
     {
       institution: "Shardasharam Vidyamandir Sci & Vocational College",
-      degree: "HSC 12th, 65%",
+      degree: "HSC 12th, ",
       period: "2021–2023",
       description: "Prepared for JEE, CET | Skills: Time Management, Stress Handling",
     },
