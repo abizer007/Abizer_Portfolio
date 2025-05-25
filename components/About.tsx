@@ -35,11 +35,7 @@ export default function About() {
             className="bg-gray-900 rounded-2xl p-8 shadow-xl border border-gray-700"
           >
             <p className="text-lg text-gray-300 leading-relaxed">
-              I am a B.Tech student specializing in Computer Science and Business Systems at MPSTME, with a deep passion
-              for technology, innovation, and continuous exploration. My interests lie at the intersection of technology
-              and finance, where I aspire to contribute to the FinTech sector by merging technological advancements with
-              financial empowerment. I am excited to be part of initiatives that push boundaries, create meaningful
-              solutions, and shape the future of technology and finance.
+              I am a B.Tech student specializing in Computer Science and Business Systems at MPSTME, with a deep passion for technology, innovation, and continuous exploration. My interests lie at the intersection of technology and finance, where I aspire to contribute to the FinTech sector by merging technological advancements with financial empowerment. With a forward-thinking mindset, I am eager to connect with individuals and organizations that drive innovation and impact. I am excited to be part of initiatives that push boundaries, create meaningful solutions, and shape the future of technology and finance. Let’s collaborate to redefine possibilities in the ever-evolving tech and FinTech landscapes.
             </p>
           </motion.div>
         </motion.div>
