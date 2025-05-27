@@ -1,7 +1,6 @@
 "use client"
 
 import type React from "react"
-
 import { motion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 import { Mail, Github, Linkedin, Send } from "lucide-react"
@@ -19,13 +18,34 @@ export default function Contact() {
     message: "",
   })
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false)
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle form submission here
-    console.log("Form submitted:", formData)
-    // Reset form
-    setFormData({ name: "", email: "", message: "" })
-    alert("Thank you for your message! I'll get back to you soon.")
+    setIsSubmitting(true)
+
+    try {
+      const response = await fetch("https://formspree.io/f/xvgajjwj", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(formData),
+      })
+
+      if (response.ok) {
+        alert("✅ Thank you! Your message has been sent.")
+        setFormData({ name: "", email: "", message: "" })
+      } else {
+        alert("❌ Something went wrong. Please try again.")
+      }
+    } catch (error) {
+      alert("❌ Network error. Please check your connection and try again.")
+      console.error(error)
+    }
+
+    setIsSubmitting(false)
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -74,7 +94,7 @@ export default function Contact() {
                 <motion.a
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  href="mailto:abizer.masavi@example.com"
+                  href="mailto:abizermasavi@gmail.com"
                   className="flex items-center p-4 bg-gray-900 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-700"
                 >
                   <div className="p-3 bg-blue-900 rounded-full mr-4">
@@ -184,10 +204,13 @@ export default function Contact() {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   type="submit"
-                  className="w-full flex items-center justify-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium"
+                  disabled={isSubmitting}
+                  className={`w-full flex items-center justify-center px-6 py-3 ${
+                    isSubmitting ? "bg-gray-500" : "bg-blue-600 hover:bg-blue-700"
+                  } text-white rounded-lg transition-colors font-medium`}
                 >
                   <Send className="mr-2" size={20} />
-                  Send Message
+                  {isSubmitting ? "Sending..." : "Send Message"}
                 </motion.button>
               </form>
             </motion.div>
